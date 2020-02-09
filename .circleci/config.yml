@@ -1,52 +1,28 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check {{ '/2.0/language-javascript/' | docs_url }} for more details
-#
-version: 2
+version: 2.1
 
 orbs:
   heroku: circleci/heroku@0.0.10. # Invoke the Heroku orb
 
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: node:latest
-
+workflows:
+  heroku_deploy:
+    jobs:
+      - build
+      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+          requires:
+            - build
+          filters:
+            branches:
+              only: staging
 jobs:
-  test:
-    <<: *defaults
+  build:
+    docker:
+      - image: node:latest
+    working_directory: ~/repo
     steps:
       - checkout
-
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
+      # npm install dependencies
       - run: npm install
       - run:
           name: Run tests
           command: npm test
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
-  heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
-    requires:
-      - build
-    filters:
-      branches:
-        only: sequential-branch-filter
-
-workflows:
-  version: 2
-  test-deploy:
-    jobs:
-      - test
-      - heroku/deploy-via-git
