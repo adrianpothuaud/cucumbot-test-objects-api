@@ -4,6 +4,9 @@
 #
 version: 2
 
+orbs:
+  heroku: circleci/heroku@0.0.10. # Invoke the Heroku orb
+
 defaults: &defaults
   working_directory: ~/repo
   docker:
@@ -34,9 +37,16 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
+  heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+    requires:
+      - build
+    filters:
+      branches:
+        only: sequential-branch-filter
 
 workflows:
   version: 2
   test-deploy:
     jobs:
       - test
+      - heroku/deploy-via-git
