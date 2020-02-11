@@ -6,7 +6,7 @@ const request = require('supertest');
 const app = require('../app');
 const supertest = request(app);
 
-describe('Service is Up !', () => {
+describe('List of resources', () => {
 
     beforeAll(async (done) => {
         const mongoServer = new mms.MongoMemoryServer();
@@ -16,7 +16,7 @@ describe('Service is Up !', () => {
         done();
     })
 
-    it('Lists cases with success', async (done) => {
+    it('List of cases', async (done) => {
         await Case.collection.insertMany(casesData);
         const response = await supertest.get('/api/v1/cases');
         expect(response.status).toBe(200);
