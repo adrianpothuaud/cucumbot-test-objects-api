@@ -4,12 +4,26 @@ orbs:
   heroku: circleci/heroku@1.0.1
 
 workflows:
-  heroku_deploy:
+  build_test_deploy:
     jobs:
       - build
       - test:
           requires:
             - build
+      - deploy-staging:
+          filters:
+            branches:
+              only:
+                - staging
+          requires:
+            - test
+      - deploy-master:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test
 
 jobs:
   build:
@@ -33,3 +47,17 @@ jobs:
           keys:
             - v1-cuc-to-api-cache
       - run: npm test
+  deploy-staging:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          app_name: cuc-to-staging
+  deploy-master:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          app_name: cuc-to
