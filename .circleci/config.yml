@@ -1,18 +1,31 @@
 version: 2.1
 
 orbs:
-  heroku: circleci/heroku@0.0.10. # Invoke the Heroku orb
+  heroku: circleci/heroku@1.0.1
 
 workflows:
   heroku_deploy:
     jobs:
       - build
-      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+      - test:
           requires:
             - build
+      - heroku/deploy-via-git:
+          requires:
+            - test
           filters:
             branches:
               only: staging
+          environment:
+            app-name: cuc-to-staging
+      - heroku/deploy-via-git:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
+          environment:
+            app-name: cuc-to
 jobs:
   build:
     docker:
@@ -20,9 +33,18 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      # npm install dependencies
       - run: npm install
-      - run:
-          name: Run tests
-          command: npm test
-
+      - save_cache:
+          key: v1-cuc-to-api-cache
+          paths:
+            - /node_modules
+  test:
+    docker:
+      - image: node:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-cuc-to-api-cache
+      - run: npm test
