@@ -1,29 +1,34 @@
 const model = require('../models/param')
 
+async function saveParam (obj) {
+    return await obj.save();
+};
+
+async function createParam (body) {
+    return saveParam(new model(body));
+};
+
+async function getParams () {
+    return await model.find();
+};
+
+async function getParamById (id) {
+    return await model.findById(id);
+};
+
+async function updateParamById (id, update) {
+    return await model.findByIdAndUpdate(id, update);
+};
+
+async function deleteParamById (id) {
+    return await model.findByIdAndDelete(id);
+};
+
 module.exports = {
-
-    saveParam: async (obj) => {
-        return await obj.save();
-    },
-
-    createParam: async (body) => {
-        return this.saveParam(new model(body));
-    },
-
-    getParams: async () => {
-        return await model.find();
-    },
-
-    getParamById: async (id) => {
-        return await model.findById(id);
-    },
-
-    updateParamById: async (id, update) => {
-        return await model.findByIdAndUpdate(id, update);
-    },
-
-    deleteParamById: async (id) => {
-        return await model.findByIdAndDelete(id);
-    }
-    
+    saveParam: saveParam,
+    createParam: createParam,
+    getParams: getParams,
+    getParamById: getParamById,
+    updateParamById: updateParamById,
+    deleteParamById: deleteParamById
 }

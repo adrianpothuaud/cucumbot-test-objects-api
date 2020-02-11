@@ -1,29 +1,34 @@
 const model = require('../models/case')
 
+async function saveCase (obj) {
+    return await obj.save();
+};
+
+async function createCase (body) {
+    return saveCase(new model(body));
+};
+
+async function getCases () {
+    return await model.find();
+};
+
+async function getCaseById (id) {
+    return await model.findById(id);
+};
+
+async function updateCaseById (id, update) {
+    return await model.findByIdAndUpdate(id, update);
+};
+
+async function deleteCaseById (id) {
+    return await model.findByIdAndDelete(id);
+};
+
 module.exports = {
-
-    saveCase: async (obj) => {
-        return await obj.save();
-    },
-
-    createCase: async (body) => {
-        return this.saveCase(new model(body));
-    },
-
-    getCases: async () => {
-        return await model.find();
-    },
-
-    getCaseById: async (id) => {
-        return await model.findById(id);
-    },
-
-    updateCaseById: async (id, update) => {
-        return await model.findByIdAndUpdate(id, update);
-    },
-
-    deleteCaseById: async (id) => {
-        return await model.findByIdAndDelete(id);
-    }
-    
+    saveCase: saveCase,
+    createCase: createCase,
+    getCases: getCases,
+    getCaseById: getCaseById,
+    updateCaseById: updateCaseById,
+    deleteCaseById: deleteCaseById
 }

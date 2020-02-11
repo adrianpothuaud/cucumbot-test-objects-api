@@ -1,29 +1,34 @@
 const model = require('../models/step')
 
+async function saveStep (obj) {
+    return await obj.save();
+};
+
+async function createStep (body) {
+    return saveStep(new model(body));
+};
+
+async function getSteps () {
+    return await model.find();
+};
+
+async function getStepById (id) {
+    return await model.findById(id);
+};
+
+async function updateStepById (id, update) {
+    return await model.findByIdAndUpdate(id, update);
+};
+
+async function deleteStepById (id) {
+    return await model.findByIdAndDelete(id);
+};
+
 module.exports = {
-
-    saveStep: async (obj) => {
-        return await obj.save();
-    },
-
-    createStep: async (body) => {
-        return this.saveStep(new model(body));
-    },
-
-    getSteps: async () => {
-        return await model.find();
-    },
-
-    getStepById: async (id) => {
-        return await model.findById(id);
-    },
-
-    updateStepById: async (id, update) => {
-        return await model.findByIdAndUpdate(id, update);
-    },
-
-    deleteStepById: async (id) => {
-        return await model.findByIdAndDelete(id);
-    }
-    
+    saveStep: saveStep,
+    createStep: createStep,
+    getSteps: getSteps,
+    getStepById: getStepById,
+    updateStepById: updateStepById,
+    deleteStepById: deleteStepById
 }
