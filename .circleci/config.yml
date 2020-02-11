@@ -36,7 +36,7 @@ jobs:
       - save_cache:
           key: v1-cuc-to-api-cache
           paths:
-            - ./node_modules
+            - ~/node_modules
   test:
     docker:
       - image: node:latest
@@ -48,16 +48,18 @@ jobs:
             - v1-cuc-to-api-cache
       - run: npm test
   deploy-staging:
+    environment:
+      app_name: cuc-to-staging
     executor: heroku/default
     steps:
       - checkout
       - heroku/install
       - heroku/deploy-via-git:
-          app_name: cuc-to-staging
   deploy-master:
+    environment:
+      app_name: cuc-to
     executor: heroku/default
     steps:
       - checkout
       - heroku/install
       - heroku/deploy-via-git:
-          app_name: cuc-to
