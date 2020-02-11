@@ -1,42 +1,73 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check {{ '/2.0/language-javascript/' | docs_url }} for more details
-#
-version: 2
+version: 2.1
 
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: node:latest
-
-jobs:
-  test:
-    <<: *defaults
-    steps:
-      - checkout
-
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: npm install
-      - run:
-          name: Run tests
-          command: npm test
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
+orbs:
+  heroku: circleci/heroku@1.0.1
 
 workflows:
-  version: 2
-  test-deploy:
+  build_test_deploy:
     jobs:
-      - test
+      - build
+      - test:
+          requires:
+            - build
+      - deploy-staging:
+          filters:
+            branches:
+              only:
+                - staging
+          requires:
+            - test
+      - deploy-master:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test
+
+jobs:
+  build:
+    docker:
+      - image: node:latest
+    working_directory: ~/cuc-to-api
+    steps:
+      - checkout
+      - run: npm install
+      - run: pwd
+      - run: ls -all
+      - save_cache:
+          paths:
+            - ~/cuc-to-api/node_modules
+          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+  test:
+    docker:
+      - image: node:latest
+    working_directory: ~/cuc-to-api
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - node-v1-{{ .Branch }}-
+            - node-v1-
+      - run: pwd
+      - run: ls -all
+      - run: mkdir -p ~/test-results/junit
+      - run: npm test --ci --reporters=jest-junit
+      - store_test_results:
+          path: ~/cuc-to-api/test-results
+  deploy-staging:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          app-name: cuc-to-staging
+  deploy-master:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          app-name: cuc-to
