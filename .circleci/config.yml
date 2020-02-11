@@ -22,7 +22,7 @@ jobs:
       - save_cache:
           key: v1-cuc-to-api-cache
           paths:
-            - node_modules
+            - ./node_modules
   test:
     docker:
       - image: node:latest
