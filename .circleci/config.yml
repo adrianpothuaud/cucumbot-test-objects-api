@@ -10,22 +10,7 @@ workflows:
       - test:
           requires:
             - build
-      - heroku/deploy-via-git:
-          requires:
-            - test
-          filters:
-            branches:
-              only: staging
-          environment:
-            app-name: cuc-to-staging
-      - heroku/deploy-via-git:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
-          environment:
-            app-name: cuc-to
+
 jobs:
   build:
     docker:
