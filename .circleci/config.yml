@@ -53,7 +53,10 @@ jobs:
             - node-v1-
       - run: pwd
       - run: ls -all
-      - run: npm test
+      - run: mkdir -p ~/test-results/junit
+      - run: npm test --ci --reporters=jest-junit
+      - store_test_results:
+          path: ~/cuc-to-api/test-results
   deploy-staging:
     executor: heroku/default
     steps:
