@@ -15,18 +15,18 @@ jobs:
   build:
     docker:
       - image: node:latest
-    working_directory: ~/repo
+    working_directory: ~/cuc-to-api
     steps:
       - checkout
       - run: npm install
       - save_cache:
           key: v1-cuc-to-api-cache
           paths:
-            - /node_modules
+            - node_modules
   test:
     docker:
       - image: node:latest
-    working_directory: ~/repo
+    working_directory: ~/cuc-to-api
     steps:
       - checkout
       - restore_cache:
