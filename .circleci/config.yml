@@ -32,8 +32,9 @@ jobs:
     working_directory: ~/cuc-to-api
     steps:
       - checkout
-      - run: npm install
       - run: pwd
+      - run: ls -all
+      - run: npm install
       - run: ls -all
       - save_cache:
           paths:
@@ -53,10 +54,16 @@ jobs:
             - node-v1-
       - run: pwd
       - run: ls -all
-      - run: mkdir -p ~/test-results/junit
-      - run: npm test --ci --reporters=jest-junit
+      - run: mkdir -p ~/cuc-to-api/test-results/junit
+      - run: mkdir -p ~/cuc-to-api/html-report
+      - run: npm test
+      - run: ls -all
       - store_test_results:
           path: ~/cuc-to-api/test-results
+      - store_artifacts:
+          path: ~/cuc-to-api/test-results
+      - store_artifacts:
+          path: ~/cuc-to-api/html-report
   deploy-staging:
     executor: heroku/default
     steps:
