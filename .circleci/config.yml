@@ -61,7 +61,6 @@ jobs:
       - heroku/install
       - heroku/deploy-via-git:
           app-name: cuc-to-staging
-          api-key: 5935ed5c-76ba-4413-a855-6b2be7524161
   deploy-master:
     executor: heroku/default
     steps:
