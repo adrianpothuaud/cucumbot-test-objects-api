@@ -1,0 +1,26 @@
+[
+    {
+        "name": "foo",
+        "type": "String",
+        "value": "bar",
+        "description": "Sample description"
+    },
+    {
+        "name": "foo",
+        "type": "String",
+        "value": "bar",
+        "description": "Sample description"
+    },
+    {
+        "name": "foo",
+        "type": "String",
+        "value": "bar",
+        "description": "Sample description"
+    },
+    {
+        "name": "foo",
+        "type": "String",
+        "value": "bar",
+        "description": "Sample description"
+    }
+]
