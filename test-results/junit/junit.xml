@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="7" failures="0" time="4.189">
-  <testsuite name="Service is Up !" errors="0" failures="0" skipped="0" timestamp="2020-02-11T20:15:15" time="3.143" tests="6">
-    <testcase classname="Service is Up ! Responds on welcome endpoint" name="Service is Up ! Responds on welcome endpoint" time="0.096">
+<testsuites name="jest tests" tests="7" failures="0" time="4.531">
+  <testsuite name="Service is Up !" errors="0" failures="0" skipped="0" timestamp="2020-02-11T21:30:40" time="3.338" tests="6">
+    <testcase classname="Service is Up ! Responds on welcome endpoint" name="Service is Up ! Responds on welcome endpoint" time="0.079">
     </testcase>
-    <testcase classname="Service is Up ! Responds on cases endpoint" name="Service is Up ! Responds on cases endpoint" time="0.073">
+    <testcase classname="Service is Up ! Responds on cases endpoint" name="Service is Up ! Responds on cases endpoint" time="0.047">
     </testcase>
-    <testcase classname="Service is Up ! Responds on params endpoint" name="Service is Up ! Responds on params endpoint" time="0.025">
+    <testcase classname="Service is Up ! Responds on params endpoint" name="Service is Up ! Responds on params endpoint" time="0.024">
     </testcase>
-    <testcase classname="Service is Up ! Responds on phrases endpoint" name="Service is Up ! Responds on phrases endpoint" time="0.03">
+    <testcase classname="Service is Up ! Responds on phrases endpoint" name="Service is Up ! Responds on phrases endpoint" time="0.027">
     </testcase>
-    <testcase classname="Service is Up ! Responds on steps endpoint" name="Service is Up ! Responds on steps endpoint" time="0.029">
+    <testcase classname="Service is Up ! Responds on steps endpoint" name="Service is Up ! Responds on steps endpoint" time="0.027">
     </testcase>
-    <testcase classname="Service is Up ! Responds on suites endpoint" name="Service is Up ! Responds on suites endpoint" time="0.04">
+    <testcase classname="Service is Up ! Responds on suites endpoint" name="Service is Up ! Responds on suites endpoint" time="0.03">
     </testcase>
   </testsuite>
-  <testsuite name="Service is Up !" errors="0" failures="0" skipped="0" timestamp="2020-02-11T20:15:18" time="0.798" tests="1">
-    <testcase classname="Service is Up ! Lists cases with success" name="Service is Up ! Lists cases with success" time="0.11">
+  <testsuite name="List of resources" errors="0" failures="0" skipped="0" timestamp="2020-02-11T21:30:44" time="0.546" tests="1">
+    <testcase classname="List of resources List of cases" name="List of resources List of cases" time="0.064">
     </testcase>
   </testsuite>
 </testsuites>
