@@ -1,21 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="7" failures="0" time="4.189">
-  <testsuite name="Service is Up !" errors="0" failures="0" skipped="0" timestamp="2020-02-11T20:15:15" time="3.143" tests="6">
-    <testcase classname="Service is Up ! Responds on welcome endpoint" name="Service is Up ! Responds on welcome endpoint" time="0.096">
+<testsuites name="jest tests" tests="51" failures="0" time="9.25">
+  <testsuite name="Errors on details of resources" errors="0" failures="0" skipped="0" timestamp="2020-02-11T23:41:52" time="1.848" tests="5">
+    <testcase classname="Errors on details of resources Handles id error on details of a case" name="Errors on details of resources Handles id error on details of a case" time="0.093">
     </testcase>
-    <testcase classname="Service is Up ! Responds on cases endpoint" name="Service is Up ! Responds on cases endpoint" time="0.073">
+    <testcase classname="Errors on details of resources Handles id error on details of a param" name="Errors on details of resources Handles id error on details of a param" time="0.039">
     </testcase>
-    <testcase classname="Service is Up ! Responds on params endpoint" name="Service is Up ! Responds on params endpoint" time="0.025">
+    <testcase classname="Errors on details of resources Handles id error on details of a phrase" name="Errors on details of resources Handles id error on details of a phrase" time="0.018">
     </testcase>
-    <testcase classname="Service is Up ! Responds on phrases endpoint" name="Service is Up ! Responds on phrases endpoint" time="0.03">
+    <testcase classname="Errors on details of resources Handles id error on details of a step" name="Errors on details of resources Handles id error on details of a step" time="0.016">
     </testcase>
-    <testcase classname="Service is Up ! Responds on steps endpoint" name="Service is Up ! Responds on steps endpoint" time="0.029">
-    </testcase>
-    <testcase classname="Service is Up ! Responds on suites endpoint" name="Service is Up ! Responds on suites endpoint" time="0.04">
+    <testcase classname="Errors on details of resources Handles id error on details of a suite" name="Errors on details of resources Handles id error on details of a suite" time="0.029">
     </testcase>
   </testsuite>
-  <testsuite name="Service is Up !" errors="0" failures="0" skipped="0" timestamp="2020-02-11T20:15:18" time="0.798" tests="1">
-    <testcase classname="Service is Up ! Lists cases with success" name="Service is Up ! Lists cases with success" time="0.11">
+  <testsuite name="Delete resources" errors="0" failures="0" skipped="0" timestamp="2020-02-11T23:41:54" time="0.886" tests="5">
+    <testcase classname="Delete resources Delete a case" name="Delete resources Delete a case" time="0.104">
+    </testcase>
+    <testcase classname="Delete resources Delete a param" name="Delete resources Delete a param" time="0.064">
+    </testcase>
+    <testcase classname="Delete resources Delete a phrase" name="Delete resources Delete a phrase" time="0.046">
+    </testcase>
+    <testcase classname="Delete resources Delete a step" name="Delete resources Delete a step" time="0.076">
+    </testcase>
+    <testcase classname="Delete resources Delete a suite" name="Delete resources Delete a suite" time="0.04">
+    </testcase>
+  </testsuite>
+  <testsuite name="Details of resources" errors="0" failures="0" skipped="0" timestamp="2020-02-11T23:41:55" time="0.657" tests="5">
+    <testcase classname="Details of resources Details of a case" name="Details of resources Details of a case" time="0.049">
+    </testcase>
+    <testcase classname="Details of resources Details of a param" name="Details of resources Details of a param" time="0.051">
+    </testcase>
+    <testcase classname="Details of resources Details of a phrase" name="Details of resources Details of a phrase" time="0.027">
+    </testcase>
+    <testcase classname="Details of resources Details of a step" name="Details of resources Details of a step" time="0.029">
+    </testcase>
+    <testcase classname="Details of resources Details of a suite" name="Details of resources Details of a suite" time="0.048">
+    </testcase>
+  </testsuite>
+  <testsuite name="Update resources" errors="0" failures="0" skipped="0" timestamp="2020-02-11T23:41:56" time="0.905" tests="5">
+    <testcase classname="Update resources Update a case" name="Update resources Update a case" time="0.106">
+    </testcase>
+    <testcase classname="Update resources Update a param" name="Update resources Update a param" time="0.058">
+    </testcase>
+    <testcase classname="Update resources Update a phrase" name="Update resources Update a phrase" time="0.061">
+    </testcase>
+    <testcase classname="Update resources Update a step" name="Update resources Update a step" time="0.049">
+    </testcase>
+    <testcase classname="Update resources Update a suite" name="Update resources Update a suite" time="0.04">
+    </testcase>
+  </testsuite>
+  <testsuite name="Creation of resources" errors="0" failures="0" skipped="0" timestamp="2020-02-11T23:41:57" time="0.71" tests="5">
+    <testcase classname="Creation of resources Create a new case" name="Creation of resources Create a new case" time="0.101">
+    </testcase>
+    <testcase classname="Creation of resources Create a new param" name="Creation of resources Create a new param" time="0.04">
+    </testcase>
+    <testcase classname="Creation of resources Create a new phrase" name="Creation of resources Create a new phrase" time="0.064">
+    </testcase>
+    <testcase classname="Creation of resources Create a new step" name="Creation of resources Create a new step" time="0.033">
+    </testcase>
+    <testcase classname="Creation of resources Create a new suite" name="Creation of resources Create a new suite" time="0.055">
+    </testcase>
+  </testsuite>
+  <testsuite name="Errors on create resources" errors="0" failures="0" skipped="0" timestamp="2020-02-11T23:41:58" time="0.682" tests="5">
+    <testcase classname="Errors on create resources Handles error on case creation" name="Errors on create resources Handles error on case creation" time="0.038">
+    </testcase>
+    <testcase classname="Errors on create resources Handles error on param creation" name="Errors on create resources Handles error on param creation" time="0.017">
+    </testcase>
+    <testcase classname="Errors on create resources Handles error on phrase creation" name="Errors on create resources Handles error on phrase creation" time="0.014">
+    </testcase>
+    <testcase classname="Errors on create resources Handles error on step creation" name="Errors on create resources Handles error on step creation" time="0.014">
+    </testcase>
+    <testcase classname="Errors on create resources Handles error on suite creation" name="Errors on create resources Handles error on suite creation" time="0.028">
+    </testcase>
+  </testsuite>
+  <testsuite name="List of resources" errors="0" failures="0" skipped="0" timestamp="2020-02-11T23:41:58" time="0.592" tests="5">
+    <testcase classname="List of resources List of cases" name="List of resources List of cases" time="0.058">
+    </testcase>
+    <testcase classname="List of resources List of params" name="List of resources List of params" time="0.033">
+    </testcase>
+    <testcase classname="List of resources List of phrases" name="List of resources List of phrases" time="0.022">
+    </testcase>
+    <testcase classname="List of resources List of steps" name="List of resources List of steps" time="0.038">
+    </testcase>
+    <testcase classname="List of resources List of suites" name="List of resources List of suites" time="0.02">
+    </testcase>
+  </testsuite>
+  <testsuite name="Service is Up !" errors="0" failures="0" skipped="0" timestamp="2020-02-11T23:41:59" time="0.543" tests="6">
+    <testcase classname="Service is Up ! Responds on welcome endpoint" name="Service is Up ! Responds on welcome endpoint" time="0.026">
+    </testcase>
+    <testcase classname="Service is Up ! Responds on cases endpoint" name="Service is Up ! Responds on cases endpoint" time="0.02">
+    </testcase>
+    <testcase classname="Service is Up ! Responds on params endpoint" name="Service is Up ! Responds on params endpoint" time="0.028">
+    </testcase>
+    <testcase classname="Service is Up ! Responds on phrases endpoint" name="Service is Up ! Responds on phrases endpoint" time="0.02">
+    </testcase>
+    <testcase classname="Service is Up ! Responds on steps endpoint" name="Service is Up ! Responds on steps endpoint" time="0.031">
+    </testcase>
+    <testcase classname="Service is Up ! Responds on suites endpoint" name="Service is Up ! Responds on suites endpoint" time="0.014">
+    </testcase>
+  </testsuite>
+  <testsuite name="Errors on update resources" errors="0" failures="0" skipped="0" timestamp="2020-02-11T23:42:00" time="0.984" tests="5">
+    <testcase classname="Errors on update resources Handles id error on update a case" name="Errors on update resources Handles id error on update a case" time="0.038">
+    </testcase>
+    <testcase classname="Errors on update resources Handles id error on update a param" name="Errors on update resources Handles id error on update a param" time="0.016">
+    </testcase>
+    <testcase classname="Errors on update resources Handles id error on update a phrase" name="Errors on update resources Handles id error on update a phrase" time="0.013">
+    </testcase>
+    <testcase classname="Errors on update resources Handles id error on update a step" name="Errors on update resources Handles id error on update a step" time="0.015">
+    </testcase>
+    <testcase classname="Errors on update resources Handles id error on update a suite" name="Errors on update resources Handles id error on update a suite" time="0.032">
+    </testcase>
+  </testsuite>
+  <testsuite name="Errors on delete resources" errors="0" failures="0" skipped="0" timestamp="2020-02-11T23:42:01" time="0.594" tests="5">
+    <testcase classname="Errors on delete resources Handles id error on delete a case" name="Errors on delete resources Handles id error on delete a case" time="0.029">
+    </testcase>
+    <testcase classname="Errors on delete resources Handles id error on delete a param" name="Errors on delete resources Handles id error on delete a param" time="0.014">
+    </testcase>
+    <testcase classname="Errors on delete resources Handles id error on delete a phrase" name="Errors on delete resources Handles id error on delete a phrase" time="0.012">
+    </testcase>
+    <testcase classname="Errors on delete resources Handles id error on delete a step" name="Errors on delete resources Handles id error on delete a step" time="0.012">
+    </testcase>
+    <testcase classname="Errors on delete resources Handles id error on delete a suite" name="Errors on delete resources Handles id error on delete a suite" time="0.028">
     </testcase>
   </testsuite>
 </testsuites>

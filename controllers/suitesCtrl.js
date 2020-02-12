@@ -1,29 +1,34 @@
 const model = require('../models/suite')
 
+async function saveSuite (obj) {
+    return await obj.save();
+};
+
+async function createSuite (body) {
+    return saveSuite(new model(body));
+};
+
+async function getSuites () {
+    return await model.find();
+};
+
+async function getSuiteById (id) {
+    return await model.findById(id);
+};
+
+async function updateSuiteById (id, update) {
+    return await model.findByIdAndUpdate(id, update);
+};
+
+async function deleteSuiteById (id) {
+    return await model.findByIdAndDelete(id);
+};
+
 module.exports = {
-
-    saveSuite: async (obj) => {
-        return await obj.save();
-    },
-
-    createSuite: async (body) => {
-        return this.saveSuite(new model(body));
-    },
-
-    getSuites: async () => {
-        return await model.find();
-    },
-
-    getSuiteById: async (id) => {
-        return await model.findById(id);
-    },
-
-    updateSuiteById: async (id, update) => {
-        return await model.findByIdAndUpdate(id, update);
-    },
-
-    deleteSuiteById: async (id) => {
-        return await model.findByIdAndDelete(id);
-    }
-    
+    saveSuite: saveSuite,
+    createSuite: createSuite,
+    getSuites: getSuites,
+    getSuiteById: getSuiteById,
+    updateSuiteById: updateSuiteById,
+    deleteSuiteById: deleteSuiteById
 }

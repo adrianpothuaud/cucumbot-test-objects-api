@@ -1,29 +1,34 @@
 const model = require('../models/phrase')
 
+async function savePhrase (obj) {
+    return await obj.save();
+};
+
+async function createPhrase (body) {
+    return savePhrase(new model(body));
+};
+
+async function getPhrases () {
+    return await model.find();
+};
+
+async function getPhraseById (id) {
+    return await model.findById(id);
+};
+
+async function updatePhraseById (id, update) {
+    return await model.findByIdAndUpdate(id, update);
+};
+
+async function deletePhraseById (id) {
+    return await model.findByIdAndDelete(id);
+};
+
 module.exports = {
-
-    savePhrase: async (obj) => {
-        return await obj.save();
-    },
-
-    createPhrase: async (body) => {
-        return this.savePhrase(new model(body));
-    },
-
-    getPhrases: async () => {
-        return await model.find();
-    },
-
-    getPhraseById: async (id) => {
-        return await model.findById(id);
-    },
-
-    updatePhraseById: async (id, update) => {
-        return await model.findByIdAndUpdate(id, update);
-    },
-
-    deletePhraseById: async (id) => {
-        return await model.findByIdAndDelete(id);
-    }
-    
+    savePhrase: savePhrase,
+    createPhrase: createPhrase,
+    getPhrases: getPhrases,
+    getPhraseById: getPhraseById,
+    updatePhraseById: updatePhraseById,
+    deletePhraseById: deletePhraseById
 }

@@ -64,6 +64,8 @@ jobs:
           path: ~/cuc-to-api/test-results
       - store_artifacts:
           path: ~/cuc-to-api/html-report
+      - store_artifacts:
+          path: ~/cuc-to-api/coverage
   deploy-staging:
     executor: heroku/default
     steps:
