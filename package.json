@@ -4,7 +4,7 @@
   "description": "REST API for Test Objects",
   "main": "server.js",
   "scripts": {
-    "test": "JEST_JUNIT_OUTPUT_DIR=\"./test-results/junit\" jest --detectOpenHandles --forceExit",
+    "test": "JEST_JUNIT_OUTPUT_DIR=\"./test-results/junit\" jest --detectOpenHandles --forceExit --coverage",
     "start": "node server.js"
   },
   "repository": {
